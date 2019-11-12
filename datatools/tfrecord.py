@@ -10,9 +10,9 @@ def get_bytes_feature( value ):
 
 
 def convert_to_tfrecord(x, y, filepath):
-    writer = tf.python_io.TFRecordWriter(filepath)
+    writer = tf.io.TFRecordWriter(filepath)
 
-    for i in range(x.shape):
+    for i in range(x.shape[0]):
         feature = {
             "image": get_bytes_feature(x[i].tostring()),
             "label": get_int_64_feature(y[i])
@@ -20,4 +20,4 @@ def convert_to_tfrecord(x, y, filepath):
 
         example = tf.train.Example(features=tf.train.Features(feature=feature))
 
-        writer.write(example)
+        writer.write(example.SerializeToString())

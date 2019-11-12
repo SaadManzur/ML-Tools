@@ -26,4 +26,4 @@ def get_cifar10_dataset(width, height):
 if __name__ == '__main__':
     x_train, y_train, x_valid, y_valid = get_cifar10_dataset(224, 224)
 
-    convert_to_tfrecord(x_valid, y_valid, "output/cifar10.tfrecord")
+    convert_to_tfrecord(x_valid, y_valid, "cifar10.tfrecord")
