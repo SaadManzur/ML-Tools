@@ -1,5 +1,5 @@
 from tensorflow import keras
-from datatools.tfrecord import convert_to_tfrecord
+from datatools.tfrecord import convert_to_tfrecord, verify_tfrecord
 import cv2 as opencv
 import numpy as np
 
@@ -26,4 +26,4 @@ def get_cifar10_dataset(width, height):
 if __name__ == '__main__':
     x_train, y_train, x_valid, y_valid = get_cifar10_dataset(224, 224)
 
-    convert_to_tfrecord(x_valid, y_valid, "cifar10.tfrecord")
+    verify_tfrecord("cifar10.tfrecord")
